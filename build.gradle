@@ -17,8 +17,13 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok:1.18.22'
     implementation 'org.springframework.boot:spring-boot-starter'
     implementation 'org.springframework.kafka:spring-kafka'
+    implementation 'com.lmax:disruptor:4.0.0.RC1'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+}
+
+tasks.withType(JavaCompile).each {
+    it.options.compilerArgs.add('--enable-preview')
 }
 
 test {
